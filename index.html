@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div id="first">
+                <label for="first">Type</label>
+                <br>
+                <input type="checkbox" id="101" value="Vegetarian" v-model="checkedNames">
+                <label for="101">Vegetarian</label>
+                <input type="checkbox" id="102" value="Nut allergy" v-model="checkedNames">
+                <label for="102">Nut allergy</label>
+                <input type="checkbox" id="103" value="Halal" v-model="checkedNames">
+                <label for="103">Halal</label>
+            </div>
+            <div id="second">
+                <label for="first">Disches</label>
+                <br>
+                <input type="checkbox" id="201" value="Cashew chicken" v-model="checkedNames" :disabled="checkedNames == 'Vegetarian' || checkedNames == 'Nut allergy'">
+                <label for="201">Cashew chicken</label>
+                <input type="checkbox" id="202" value="Sweet and sour pork" v-model="checkedNames" :disabled="checkedNames == 'Vegetarian' || checkedNames == 'Halal'">
+                <label for="202">Sweet and sour pork</label>
+                <input type="checkbox" id="203" value="Stir fried Tofu" v-model="checkedNames">
+                <label for="203">Stir fried Tofu</label>
+                <input type="checkbox" id="204" value="Vegetable fried rice" v-model="checkedNames" :disabled="checkedNames == 'Steamed rice'">
+                <label for="204">Vegetable fried rice</label>
+                <input type="checkbox" id="205" value="Pad Thai" v-model="checkedNames" :disabled="checkedNames == 'Steamed rice'">
+                <label for="205">Pad Thai</label>
+                <input type="checkbox" id="206" value="Massaman beef" v-model="checkedNames" :disabled="checkedNames == 'Vegetarian'">
+                <label for="206">Massaman beef</label>
+            </div>
+            <div id="third">
+                <label for="first">Side Dish</label>
+                <br>
+                <input type="checkbox" id="301" value="Peanut sauce" v-model="checkedNames" :disabled="checkedNames == 'Nut allergy'">
+                <label for="301">Peanut sauce</label>
+                <input type="checkbox" id="302" value="Oyster sauce" v-model="checkedNames" :disabled="checkedNames == 'Vegetarian'">
+                <label for="302">Oyster sauce</label>
+                <input type="checkbox" id="303" value="Vegetable spring rolls" v-model="checkedNames">
+                <label for="303">Vegetable spring rolls</label>
+                <input type="checkbox" id="304" value="Steamed rice" v-model="checkedNames">
+                <label for="304">Steamed rice</label>
+            </div>
+            <span>Choosen Disches: {{ checkedNames }}</span>
+        </div>
+    </body>
+    <script>
+        var app = new Vue({ 
+            el: '#app',
+            data: {
+                checkedNames: []
+            }
+        });
+    </script>
+</html>
